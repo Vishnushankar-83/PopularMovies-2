@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8061e4</color>
+    <color name="colorPrimaryDark">#7654e2</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorTeal">#21d277</color>
+    <color name="color_textColor">#626262</color>
+    <color name="color_View">@android:color/darker_gray</color>
+    <color name="color_detailPageText">#091c24</color>
+    <color name="color_tabText">#b5acd3</color>
+
+</resources>
