@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by vishnushankar on 11/03/17.
+ * Created by Vishnushankar on 10/25/17.
  * This class is for configure data list
  */
 

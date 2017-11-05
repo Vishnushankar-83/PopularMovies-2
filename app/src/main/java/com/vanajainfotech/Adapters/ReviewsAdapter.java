@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Created by Vishnushankar on 10/23/2017.
+ * This is the adapter for RecyclerView
+ */
+
 public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewsAdapterViewHolder> {
 
     private List<FeedUserReviews> feedUserReviewsesList = new ArrayList<>();

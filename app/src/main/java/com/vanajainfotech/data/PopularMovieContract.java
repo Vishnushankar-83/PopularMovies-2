@@ -5,7 +5,10 @@ import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-
+/**
+ * Created by Vishnushankar on 10/23/2017.
+ * This class is for PopularMovieContract.
+ */
 
 public class PopularMovieContract  {
 

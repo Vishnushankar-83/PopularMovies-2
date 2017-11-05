@@ -90,26 +90,18 @@ public class FavoriteListFragment extends Fragment implements MovieAdapter.ListI
             GsonBuilder gsonBuilder = new GsonBuilder();
             gsonBuilder.setDateFormat("M/d/yy hh:mm a");
             mGson = gsonBuilder.create();
-
             List<String> FavoriteUrlList = null;
-
-
             FavoriteUrlList = getAllFavoriteMovieURL();
 
 
             if (FavoriteUrlList != null && FavoriteUrlList.size() > 0) {
-
                 for (int i = 0; i < FavoriteUrlList.size(); i++) {
-
                     StringRequest requestForPopularMovies = new StringRequest(Request.Method.GET, FavoriteUrlList.get(i), onPostsLoadedPopular, onPostsError);
-
                     mRequestQueue.add(requestForPopularMovies);
                 }
-
             } else {
                 Toast.makeText(getActivity(), "This is no favorite movie in list", Toast.LENGTH_LONG).show();
             }
-
             snakeBarAppear = false;
 
         } else {
@@ -126,21 +118,13 @@ public class FavoriteListFragment extends Fragment implements MovieAdapter.ListI
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(com.vanajainfotech.android.popularmovies.R.layout.fragment_mainpage, container, false);
-
         ButterKnife.bind(this, view);
-
         SetMarginOfGridlayout setMarginOfGridlayout = new SetMarginOfGridlayout(0);
-
         mLayoutManager = new GridLayoutManager(getActivity(), numberOfColumns());
-
         mRecycleView.setLayoutManager(mLayoutManager);
-
         mRecycleView.addItemDecoration(setMarginOfGridlayout);
-
         mRecycleView.setHasFixedSize(true);
-
         if(snakeBarAppear) showSnakeBar();
-
         return view;
     }
 
@@ -163,44 +147,27 @@ public class FavoriteListFragment extends Fragment implements MovieAdapter.ListI
     public void onClick(int clickedItemIndex) {
 
         String textTitle;
-
         String textReleaseDate;
-
         String textOverview;
-
         Double textVoteAverage;
-
         String urlThumbnail;
-
         int numberMovieIDInTMDB;
-
         Class destinationActivity = ChildActivity.class;
-
         Intent startChildActivityIntent = new Intent(getContext(), destinationActivity);
-
         textTitle = FavoriteMoviesList.get(clickedItemIndex).getTitle();
-
         textReleaseDate = FavoriteMoviesList.get(clickedItemIndex).getReleaseDate();
-
         textOverview = FavoriteMoviesList.get(clickedItemIndex).getOverview();
-
         textVoteAverage = FavoriteMoviesList.get(clickedItemIndex).getVoteAverage();
-
         urlThumbnail = FavoriteMoviesList.get(clickedItemIndex).getPosterPath();
-
         numberMovieIDInTMDB = FavoriteMoviesList.get(clickedItemIndex).getId();
-
         Bundle extras = new Bundle();
-
         extras.putString("title", textTitle);
         extras.putString("releaseDate", textReleaseDate);
         extras.putString("overview", textOverview);
         extras.putDouble("voteAverage", textVoteAverage);
         extras.putString("Thumbnail", urlThumbnail);
         extras.putInt("id", numberMovieIDInTMDB);
-
         startChildActivityIntent.putExtras(extras);
-
         startActivity(startChildActivityIntent);
     }
 
@@ -210,11 +177,8 @@ public class FavoriteListFragment extends Fragment implements MovieAdapter.ListI
         public void onResponse(String response) {
 
             feeditem = mGson.fromJson(response, FeedItem.class);
-
             FavoriteMoviesList.add(feeditem);
-
             mMovieAdapter = new MovieAdapter(MainActivity.getmContext(), FavoriteMoviesList, FavoriteListFragment.this);
-
             mRecycleView.setAdapter(mMovieAdapter);
 
         }

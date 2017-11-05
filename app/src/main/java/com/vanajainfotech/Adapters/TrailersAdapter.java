@@ -18,7 +18,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Created by Vishnushankar on 10/23/2017.
+ * This is the adapter for RecyclerView
+ */
 
 public class TrailersAdapter extends RecyclerView.Adapter<TrailersAdapter.TrailersAdapterViewHolder> {
 

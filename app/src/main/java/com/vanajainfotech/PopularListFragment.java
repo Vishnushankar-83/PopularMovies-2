@@ -149,9 +149,7 @@ public class PopularListFragment extends Fragment implements MovieAdapter.ListIt
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
 
                 StringRequest requestForPopularMovies = new StringRequest(Request.Method.GET, MOVIE_POPULAR_URL + String.valueOf(page), onPostsLoadedPopular, onPostsError);
-
                 mRequestQueue.add(requestForPopularMovies);
-
                 final int curSize = mMovieAdapter.getItemCount();
                 view.post(new Runnable() {
                     @Override
@@ -223,9 +221,7 @@ public class PopularListFragment extends Fragment implements MovieAdapter.ListIt
         extras.putDouble("voteAverage", textVoteAverage);
         extras.putString("Thumbnail", urlThumbnail);
         extras.putInt("id", numberMovieIDInTMDB);
-
         startChildActivityIntent.putExtras(extras);
-
         startActivity(startChildActivityIntent);
     }
 
@@ -262,7 +258,6 @@ public class PopularListFragment extends Fragment implements MovieAdapter.ListIt
 
         ConnectivityManager cm =
                 (ConnectivityManager) MainActivity.getmContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();

@@ -297,7 +297,6 @@ public class SearchResultFragment extends Fragment implements MovieAdapter.ListI
 
         ConnectivityManager cm =
                 (ConnectivityManager) MainActivity.getmContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
@@ -308,7 +307,6 @@ public class SearchResultFragment extends Fragment implements MovieAdapter.ListI
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
         int widthDivider = 400;
         int width = displayMetrics.widthPixels;
         int nColumns = width / widthDivider;

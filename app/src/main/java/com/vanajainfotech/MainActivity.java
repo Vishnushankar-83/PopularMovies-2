@@ -195,17 +195,12 @@ public class MainActivity extends AppCompatActivity
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 mSearchResultFragment = SearchResultFragment.newInstance(query);
-
                 searchView.clearFocus();
-
                 getSupportFragmentManager().beginTransaction().
                         replace(com.vanajainfotech.android.popularmovies.R.id.search_page_container, mSearchResultFragment).
                         commit();
-
                 mSearchFragmentContainer.setVisibility(View.VISIBLE);
-
                 return true;
             }
 
@@ -222,7 +217,6 @@ public class MainActivity extends AppCompatActivity
             public boolean onMenuItemActionExpand(MenuItem item) {
 
                 tabLayout.setVisibility(View.GONE);
-
                 mViewPager.setVisibility(View.INVISIBLE);
 
                 return true;
@@ -230,11 +224,8 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-
                 tabLayout.setVisibility(View.VISIBLE);
-
                 mViewPager.setVisibility(View.VISIBLE);
-
                 mSearchFragmentContainer.setVisibility(View.INVISIBLE);
 
                 return true;

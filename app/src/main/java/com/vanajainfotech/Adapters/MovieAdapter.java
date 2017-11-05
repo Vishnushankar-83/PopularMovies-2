@@ -1,7 +1,7 @@
 package com.vanajainfotech.Adapters;
 
 /**
- * Created by Vishnushankar on 2017/3/9.
+ * Created by Vishnushankar on 10/23/2017.
  * This is the adapter for RecyclerView
  */
 

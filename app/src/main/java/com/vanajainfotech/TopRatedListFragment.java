@@ -96,7 +96,6 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
             GsonBuilder gsonBuilder = new GsonBuilder();
             gsonBuilder.setDateFormat("M/d/yy hh:mm a");
             mGson = gsonBuilder.create();
-
             StringRequest requestForTopRatedMovies = new StringRequest(Request.Method.GET, MOVIE_RATE_URL + "1", onPostsLoadedTopRated, onPostsError);
 
             mRequestQueue.add(requestForTopRatedMovies);
@@ -106,8 +105,6 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
         }else{
             snakeBarAppear = true;
         }
-
-
         super.onCreate(savedInstanceState);
 
     }
@@ -137,13 +134,8 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
                 = new EndlessRecyclerViewScrollListener(mLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-
-
                 StringRequest requestForTopRatedMovies = new StringRequest(Request.Method.GET, MOVIE_RATE_URL + String.valueOf(page), onPostsLoadedTopRated, onPostsError);
-
                 mRequestQueue.add(requestForTopRatedMovies);
-
-
                 final int curSize = mMovieAdapter.getItemCount();
                 view.post(new Runnable() {
                     @Override
@@ -152,7 +144,6 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
                         mMovieAdapter.notifyItemRangeInserted(curSize, TopRatedMoviesList.size() - 1);
                     }
                 });
-
             }
         };
         mRecycleView.addOnScrollListener(endlessRecyclerViewScrollListener);
@@ -208,16 +199,13 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
 
 
         Bundle extras = new Bundle();
-
         extras.putString("title", textTitle);
         extras.putString("releaseDate", textReleaseDate);
         extras.putString("overview", textOverview);
         extras.putDouble("voteAverage", textVoteAverage);
         extras.putString("Thumbnail", urlThumbnail);
         extras.putInt("id", numberMovieIDInTMDB);
-
         startChildActivityIntent.putExtras(extras);
-
         startActivity(startChildActivityIntent);
     }
 
@@ -229,11 +217,8 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
             ResultList = mGson.fromJson(response, JSONResultList.class);
 
             if (TopRatedMoviesList == null || TopRatedMoviesList.size() == 0) {
-
                 TopRatedMoviesList = ResultList.getResults();
-
                 mMovieAdapter = new MovieAdapter(MainActivity.getmContext(), TopRatedMoviesList, TopRatedListFragment.this);
-
                 mRecycleView.setAdapter(mMovieAdapter);
 
             } else {
@@ -257,7 +242,6 @@ public class TopRatedListFragment extends Fragment implements MovieAdapter.ListI
 
         ConnectivityManager cm =
                 (ConnectivityManager) MainActivity.getmContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
