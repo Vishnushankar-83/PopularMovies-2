@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'pop movies key'
-            keyPassword 'Wjc19881226'
-            storeFile file('/Users/JC/Documents/AndroidKey')
-            storePassword 'Wjc19881226'
+            keyAlias 'popular movies key'
+            keyPassword '**************'
+            storeFile file('C:/vishnu/AndroidKey')
+            storePassword '******************'
         }
     }
     compileSdkVersion 26
